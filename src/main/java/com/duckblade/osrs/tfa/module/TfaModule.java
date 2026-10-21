@@ -1,6 +1,7 @@
 package com.duckblade.osrs.tfa.module;
 
 import com.duckblade.osrs.tfa.TfaConfig;
+import com.duckblade.osrs.tfa.features.FadeDisabler;
 import com.duckblade.osrs.tfa.features.LobbyBoardHighlighter;
 import com.duckblade.osrs.tfa.features.hporbs.HealthBarsOverlay;
 import com.duckblade.osrs.tfa.util.RaidCompletionTracker;
@@ -26,6 +27,7 @@ public class TfaModule extends AbstractModule
 
 	@Provides
 	Set<PluginLifecycleComponent> lifecycleComponents(
+		FadeDisabler fadeDisabler,
 		HealthBarsOverlay healthBarsOverlay,
 		LobbyBoardHighlighter lobbyBoardHighlighter,
 		RaidCompletionTracker raidCompletionTracker,
@@ -33,6 +35,7 @@ public class TfaModule extends AbstractModule
 	)
 	{
 		return ImmutableSet.of(
+			fadeDisabler,
 			healthBarsOverlay,
 			lobbyBoardHighlighter,
 			raidCompletionTracker,

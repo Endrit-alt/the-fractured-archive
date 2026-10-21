@@ -45,4 +45,16 @@ public interface TfaConfig extends Config
 	{
 		return HpOrbMode.ORBS;
 	}
+
+	@ConfigItem(
+		keyName = "hideFadeTransition",
+		name = "Hide Fade Transition",
+		description = "Hides the fade transition between loading zones.",
+		position = 4,
+		section = SECTION_MISCELLANEOUS
+	)
+	default boolean hideFadeTransition()
+	{
+		return false;
+	}
 }
