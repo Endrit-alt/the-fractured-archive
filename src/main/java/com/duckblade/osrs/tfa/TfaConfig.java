@@ -1,5 +1,6 @@
 package com.duckblade.osrs.tfa;
 
+import com.duckblade.osrs.tfa.features.hporbs.HpOrbMode;
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
@@ -31,5 +32,17 @@ public interface TfaConfig extends Config
 	default boolean lobbyBoardFriendHighlighter()
 	{
 		return true;
+	}
+
+	@ConfigItem(
+		keyName = "hpOrbsMode",
+		name = "HP Orbs",
+		description = "Removes HP orbs from the screen or replaces them with health bars.",
+		position = 1,
+		section = SECTION_MISCELLANEOUS
+	)
+	default HpOrbMode hpOrbsMode()
+	{
+		return HpOrbMode.ORBS;
 	}
 }

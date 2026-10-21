@@ -2,6 +2,7 @@ package com.duckblade.osrs.tfa.module;
 
 import com.duckblade.osrs.tfa.TfaConfig;
 import com.duckblade.osrs.tfa.features.LobbyBoardHighlighter;
+import com.duckblade.osrs.tfa.features.hporbs.HealthBarsOverlay;
 import com.duckblade.osrs.tfa.util.RaidCompletionTracker;
 import com.duckblade.osrs.tfa.util.RaidStateTracker;
 import com.google.common.collect.ImmutableSet;
@@ -25,12 +26,14 @@ public class TfaModule extends AbstractModule
 
 	@Provides
 	Set<PluginLifecycleComponent> lifecycleComponents(
+		HealthBarsOverlay healthBarsOverlay,
 		LobbyBoardHighlighter lobbyBoardHighlighter,
 		RaidCompletionTracker raidCompletionTracker,
 		RaidStateTracker raidStateTracker
 	)
 	{
 		return ImmutableSet.of(
+			healthBarsOverlay,
 			lobbyBoardHighlighter,
 			raidCompletionTracker,
 			raidStateTracker

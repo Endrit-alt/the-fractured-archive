@@ -9,7 +9,7 @@ public enum RaidRoom
 
 	ARCHIVE_GUARDIAN(new int[]{16471}, "Archive Guardian"),
 	BORK(new int[]{16727}, "Bork and the Smorks"),
-	DREADNOTH(new int[]{-1}, "Dreadnoth the Jellied"),
+	DREADNOTH(new int[]{16728}, "Dreadnoth the Jellied"),
 	XARTH(new int[]{16726}, "Xarth"),
 	OCELLUS(new int[]{16472}, "Ocellus"),
 	;
