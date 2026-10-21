@@ -1,6 +1,7 @@
 package com.duckblade.osrs.tfa;
 
 import com.duckblade.osrs.tfa.features.hporbs.HpOrbMode;
+import com.duckblade.osrs.tfa.features.updatenotifier.UpdateNotifier;
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
@@ -23,11 +24,23 @@ public interface TfaConfig extends Config
 	String SECTION_MISCELLANEOUS = "sectionMiscellaneous";
 
 	@ConfigItem(
+		keyName = "showUpdateMessages",
+		name = "Show Updates",
+		description = "Opens a panel describing plugin updates after new features are added to the plugin.",
+		position = 0,
+		section = SECTION_MISCELLANEOUS
+	)
+	default boolean showUpdateMessages()
+	{
+		return true;
+	}
+
+	@ConfigItem(
 		keyName = "lobbyBoardFriendHighlighter",
-		name = "Friend Highlight",
-		description = "Highlight friends' names on the lobby party finder board.",
+		name = "Lobby Board Highlight",
+		description = "Highlight friends' and ignores' names on the lobby party finder board.",
 		section = SECTION_MISCELLANEOUS,
-		position = 0
+		position = 1
 	)
 	default boolean lobbyBoardFriendHighlighter()
 	{
@@ -38,7 +51,7 @@ public interface TfaConfig extends Config
 		keyName = "hpOrbsMode",
 		name = "HP Orbs",
 		description = "Removes HP orbs from the screen or replaces them with health bars.",
-		position = 1,
+		position = 2,
 		section = SECTION_MISCELLANEOUS
 	)
 	default HpOrbMode hpOrbsMode()
@@ -50,11 +63,32 @@ public interface TfaConfig extends Config
 		keyName = "hideFadeTransition",
 		name = "Hide Fade Transition",
 		description = "Hides the fade transition between loading zones.",
-		position = 4,
+		position = 3,
 		section = SECTION_MISCELLANEOUS
 	)
 	default boolean hideFadeTransition()
 	{
 		return false;
 	}
+
+	// hidden
+
+	@ConfigItem(
+		keyName = "updateNotifierLastVersion",
+		name = "",
+		description = "",
+		hidden = true
+	)
+	default int updateNotifierLastVersion()
+	{
+		return UpdateNotifier.TARGET_VERSION - 1;
+	}
+
+	@ConfigItem(
+		keyName = "updateNotifierLastVersion",
+		name = "",
+		description = "",
+		hidden = true
+	)
+	void updateNotifierLastVersion(int newVersion);
 }

@@ -4,6 +4,7 @@ import com.duckblade.osrs.tfa.TfaConfig;
 import com.duckblade.osrs.tfa.features.FadeDisabler;
 import com.duckblade.osrs.tfa.features.LobbyBoardHighlighter;
 import com.duckblade.osrs.tfa.features.hporbs.HealthBarsOverlay;
+import com.duckblade.osrs.tfa.features.updatenotifier.UpdateNotifier;
 import com.duckblade.osrs.tfa.util.RaidCompletionTracker;
 import com.duckblade.osrs.tfa.util.RaidStateTracker;
 import com.google.common.collect.ImmutableSet;
@@ -31,7 +32,8 @@ public class TfaModule extends AbstractModule
 		HealthBarsOverlay healthBarsOverlay,
 		LobbyBoardHighlighter lobbyBoardHighlighter,
 		RaidCompletionTracker raidCompletionTracker,
-		RaidStateTracker raidStateTracker
+		RaidStateTracker raidStateTracker,
+		UpdateNotifier updateNotifier
 	)
 	{
 		return ImmutableSet.of(
@@ -39,7 +41,8 @@ public class TfaModule extends AbstractModule
 			healthBarsOverlay,
 			lobbyBoardHighlighter,
 			raidCompletionTracker,
-			raidStateTracker
+			raidStateTracker,
+			updateNotifier
 		);
 	}
 
