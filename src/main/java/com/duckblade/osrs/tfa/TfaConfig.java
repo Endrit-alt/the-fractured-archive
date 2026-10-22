@@ -107,35 +107,22 @@ public interface TfaConfig extends Config
 	}
 
 	@ConfigItem(
-		keyName = "rewardChestPulse",
-		name = "Pulse",
-		description = "Gently pulse the chest glow and light ray.",
+		keyName = "rewardChestHighlightOpened",
+		name = "Highlight opened chest",
+		description = "Keep highlighting your chest after it opens.",
 		position = 2,
 		section = SECTION_REWARD_CHESTS
 	)
-	default boolean rewardChestPulse()
+	default boolean rewardChestHighlightOpened()
 	{
 		return true;
-	}
-
-	@Range(min = 0, max = 100)
-	@ConfigItem(
-		keyName = "rewardChestStrength",
-		name = "Glow strength",
-		description = "Overall highlight strength, as a percentage.",
-		position = 3,
-		section = SECTION_REWARD_CHESTS
-	)
-	default int rewardChestStrength()
-	{
-		return 60;
 	}
 
 	@ConfigItem(
 		keyName = "rewardChestOutline",
 		name = "Chest outline",
 		description = "Draw a soft outline around your chest model.",
-		position = 4,
+		position = 3,
 		section = SECTION_REWARD_CHESTS
 	)
 	default boolean rewardChestOutline()
@@ -148,7 +135,7 @@ public interface TfaConfig extends Config
 		keyName = "rewardChestOutlineWidth",
 		name = "Outline width",
 		description = "Width of the chest model glow in pixels.",
-		position = 5,
+		position = 4,
 		section = SECTION_REWARD_CHESTS
 	)
 	default int rewardChestOutlineWidth()
@@ -156,14 +143,27 @@ public interface TfaConfig extends Config
 		return 6;
 	}
 
+	@Range(min = 0, max = 100)
 	@ConfigItem(
-		keyName = "rewardChestHighlightOpened",
-		name = "Highlight opened chest",
-		description = "Keep highlighting your chest after it opens.",
-		position = 7,
+		keyName = "rewardChestStrength",
+		name = "Glow strength",
+		description = "Overall highlight strength, as a percentage.",
+		position = 5,
 		section = SECTION_REWARD_CHESTS
 	)
-	default boolean rewardChestHighlightOpened()
+	default int rewardChestStrength()
+	{
+		return 60;
+	}
+
+	@ConfigItem(
+		keyName = "rewardChestPulse",
+		name = "Pulse",
+		description = "Gently pulse the chest glow and light ray.",
+		position = 6,
+		section = SECTION_REWARD_CHESTS
+	)
+	default boolean rewardChestPulse()
 	{
 		return true;
 	}
@@ -172,10 +172,22 @@ public interface TfaConfig extends Config
 		keyName = "rewardChestHighlightUnique",
 		name = "Highlight my unique chest",
 		description = "Give your unique chest a glow and ray only when it belongs to you.",
-		position = 8,
+		position = 7,
 		section = SECTION_REWARD_CHESTS
 	)
 	default boolean rewardChestHighlightUnique()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+		keyName = "rewardChestRecolorUniqueLights",
+		name = "Recolor my unique lights",
+		description = "Recolor the purple reward room flames only when the unique chest belongs to you.",
+		position = 8,
+		section = SECTION_REWARD_CHESTS
+	)
+	default boolean rewardChestRecolorUniqueLights()
 	{
 		return true;
 	}
@@ -191,18 +203,6 @@ public interface TfaConfig extends Config
 	default Color rewardChestUniqueColor()
 	{
 		return new Color(0xF05700FF, true);
-	}
-
-	@ConfigItem(
-		keyName = "rewardChestRecolorUniqueLights",
-		name = "Recolor my unique lights",
-		description = "Recolor the purple reward room flames only when the unique chest belongs to you.",
-		position = 10,
-		section = SECTION_REWARD_CHESTS
-	)
-	default boolean rewardChestRecolorUniqueLights()
-	{
-		return true;
 	}
 
 	// hidden
